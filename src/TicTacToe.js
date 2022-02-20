@@ -47,7 +47,10 @@ function TicTacToe() {
 
     const { width, height } = useWindowSize()
     return (
+
+
         <div className="full-game">
+
             {winner ? <Confetti
                 width={width}
                 height={height} gravity={0.01}
@@ -59,9 +62,18 @@ function TicTacToe() {
                         <Gamebox val={val} onPlayerClick={() => handleClick(index)} />
                     ))
                 }
+
             </div>
             {winner ? <h2>Winner is : {winner}</h2> : ""}
+            <button
+                onClick={() => {
+                    setBoard([null, null, null, null, null, null, null, null, null]);
+                    setIsXturn(true)
+                }
+            }
+                >Restart</button>
         </div>
+
     )
 }
 
